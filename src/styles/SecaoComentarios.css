@@ -1,0 +1,93 @@
+@font-face {
+  font-family: "Syntax LT Std";
+  src: url("../assets/fonts/SyntaxLTStd-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Anago Book";
+  src: url("../assets/fonts/Anago-Book.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Variáveis globais */
+:root {
+  --p1: #c96372;
+  --p2: #7b3688;
+  --p3: #000000;
+  --p4: #f8e12d;
+  --p5: #ffffff;
+  --p6: #ce6b00;
+  --p7: #54963d;
+  --p8: #35418e;
+}
+
+.secao-comentarios {
+  background: linear-gradient(180deg, #f5af75, #7b36a8);
+  color: var(--p5);
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
+
+.titulo {
+  font-family: "Anago Book", serif;
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+}
+
+.subtitulo {
+  color: #f0f0f0;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+.comentarios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.comentario-card {
+  background: var(--p5);
+  color: var(--p3);
+  border-radius: 12px;
+  padding: 1.8rem;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.15);
+  text-align: left;
+}
+
+.comentario-texto {
+  font-family: "Anago Book", serif;
+  font-size: 1.1rem;
+  margin-bottom: 1.4rem;
+}
+
+.comentario-usuario {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.comentario-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.comentario-nome {
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.comentario-papel {
+  color: #666;
+  font-size: 0.85rem;
+}
