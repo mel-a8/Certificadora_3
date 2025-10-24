@@ -1,0 +1,71 @@
+.secao-projetos {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  padding: 80px 40px;
+  color: #fff;
+  overflow: hidden;
+}
+
+.secao-projetos::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 165, 0, 0.3),
+    rgba(128, 0, 128, 0.7)
+  );
+  z-index: 0;
+}
+
+.conteudo-projetos {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.titulo-projetos {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffea7a;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.cards-projetos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  justify-items: center;
+}
+
+.card-projeto {
+  background: #fff;
+  color: #333;
+  border-radius: 10px;
+  padding: 24px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-projeto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.titulo-card {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #5a2ca0;
+  margin-bottom: 10px;
+}
+
+.descricao-card {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: justify;
+}

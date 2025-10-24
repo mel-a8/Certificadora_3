@@ -1,4 +1,5 @@
 import "../styles/banner.css";
+import fundoProjetos from "../assets/Meninas-Digitais-UTFPR-CP-1.jpg"; 
 
 export default function BannerPrincipal() {
   return (

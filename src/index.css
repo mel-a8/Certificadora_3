@@ -1,13 +1,13 @@
 @font-face {
   font-family: "Syntax LT Std";
-  src: url("./assets/fonts/SyntaxLTStd-Regular.woff2") format("woff2");
+  src: url("fonts/SyntaxLTStd.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Anago Book";
-  src: url("./assets/fonts/Anago-Book.woff2") format("woff2");
+  src: url("fonts/AnagoBook.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }

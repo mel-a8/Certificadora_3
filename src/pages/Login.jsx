@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../styles/login.css";
-import imagemLogin from "../assets/planta.png";
+import imagemLogin from "../assets/logomd.png";
 
 export default function Login() {
   return (
