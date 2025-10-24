@@ -1,0 +1,41 @@
+/* index.css - Cores e fontes principais */
+@font-face {
+  font-family: 'Syntax LT Std';
+  src: url('/fonts/SyntaxLTStd.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Anago Book';
+  src: url('/fonts/AnagoBook.woff2') format('woff2');
+}
+
+:root {
+  --p1: #C96372;
+  --p2: #7B3688;
+  --p3: #000000;
+  --p4: #F8E12D;
+  --p5: #FFFFFF;
+  --p6: #CE6B00;
+  --p7: #54963D;
+  --p8: #35418E;
+
+  --s1: #F5E77A;
+  --s2: #BFC8FF;
+  --s3: #B7BFC2;
+  --s4: #F6B477;
+
+  --font-principal: 'Syntax LT Std', sans-serif;
+  --font-logo: 'Anago Book', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-principal);
+  background-color: var(--p5);
+  color: var(--p3);
+}

@@ -1,0 +1,66 @@
+@font-face {
+  font-family: "Syntax LT Std";
+  src: url("./assets/fonts/SyntaxLTStd-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Anago Book";
+  src: url("./assets/fonts/Anago-Book.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Fonte padrão global */
+body {
+  margin: 0;
+  font-family: "Syntax LT Std", Arial, sans-serif;
+  background-color: #fff;
+}
+
+
+:root{
+  --p1: #C96372;
+  --p2: #7B3688;
+  --p3: #000000;
+  --p4: #F8E12D;
+  --p5: #FFFFFF;
+  --p6: #CE6B00;
+  --p7: #54963D;
+  --p8: #35418E;
+
+  --s1: #F5E77A;
+  --s2: #BFC8FF;
+  --s3: #B7BFC2;
+  --s4: #F6B477;
+
+  --font-main: 'Syntax LT Std', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --font-logo: 'Anago Book', Georgia, serif;
+}
+
+/* Reset simples */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html,body,#root { height: 100%; }
+body {
+  font-family: var(--font-main);
+  color: var(--p3);
+  background: var(--p5);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height: 1.4;
+}
+
+/* Links padrão */
+a { color: inherit; text-decoration: none; }
+
+/* Container utilitário */
+.container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
+
+/* Helpers */
+.flex { display:flex; align-items:center; }
+.space-between { display:flex; justify-content:space-between; align-items:center; }
+.center { display:flex; justify-content:center; align-items:center; }

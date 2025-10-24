@@ -1,0 +1,60 @@
+.banner {
+  background-image: linear-gradient(180deg, #541654 0%, #6e1e6e 55%, #f5b56b 100%);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.banner-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.banner h1 {
+  font-family: "Syntax LT Std", sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.banner p {
+  font-family: "Syntax LT Std", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #ffef91;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.banner-button {
+  background: #fff34f;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.banner-button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+@media (max-width: 600px) {
+  .banner {
+    padding: 80px 16px;
+  }
+
+  .banner h1 {
+    font-size: 2.2rem;
+  }
+
+  .banner p {
+    font-size: 1rem;
+  }
+}
