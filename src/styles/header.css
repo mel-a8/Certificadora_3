@@ -186,3 +186,7 @@
 .primary-nav a:hover {
   opacity: 0.9;
 }
+
+#sobre {
+  scroll-margin-top: 100px; 
+}

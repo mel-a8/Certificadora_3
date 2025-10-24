@@ -3,7 +3,7 @@ import { FaBullseye, FaLightbulb, FaHeart } from "react-icons/fa";
 
 export default function SobreNos() {
   return (
-    <section className="sobre">
+    <section id="sobre" className="sobre">
       <div className="container">
         <h2 className="titulo">Quem somos?</h2>
         <p className="texto">

@@ -35,7 +35,7 @@ export default function Header() {
           aria-label="Navegação principal"
         >
           <ul>
-            <li><Link to="/sobre">Sobre</Link></li>
+            <li><a href="#sobre">Sobre</a></li>
             <li><a href="#contato">Contato</a></li>
             <li className="nav-actions">
               <button className="btn btn-outline" onClick={() => navigate("/login")}>
