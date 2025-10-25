@@ -7,7 +7,6 @@ export default function Registrar() {
   return (
     <>
       <Header />
-
       <div className="login-container">
         {/* Lado esquerdo: formulário */}
         <div className="login-form">
@@ -37,8 +36,6 @@ export default function Registrar() {
             <a href="/login" className="registrar-link">Faça login</a>
           </p>
         </div>
-
-        {/* Lado direito: imagem */}
         <div className="login-image">
           <img src={imagemLogin} alt="Imagem Registro" />
         </div>

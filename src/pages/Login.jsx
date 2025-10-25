@@ -7,9 +7,7 @@ export default function Login() {
   return (
     <>
       <Header />
-
       <div className="login-container">
-''
         <div className="login-form">
           <h1>Bem-vindo de volta!</h1>
           <p>Ponha suas credenciais para acessar sua conta</p>
@@ -39,7 +37,6 @@ export default function Login() {
           <img src={imagemLogin} alt="Imagem Login" />
         </div>
       </div>
-
       <Footer />
     </>
   );

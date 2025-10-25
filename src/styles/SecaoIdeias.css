@@ -1,0 +1,23 @@
+.secao-ideias {
+
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.container {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+}
+
+.titulo {
+    font-family: "Anago Book", serif;
+    font-size: 2rem;
+    margin-bottom: 0.3rem;
+}
+
+
+.ideias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
