@@ -1,8 +1,8 @@
 :root{
-  --bg-header: #ffffff;
-  --accent: #6e2b6e; 
-  --text: #222;
-  --muted: #6b6b6b;
+  --bg-header: var(--p5) ;
+  --accent: var(--p2); 
+  --text: var(--p3);
+  --muted: var(--s3);
   --btn-radius: 4px; 
   --container-w: 1100px;
 }
@@ -13,7 +13,7 @@
   position: sticky;
   top: 0;
   z-index: 60;
-  border-bottom: 1px solid #000; 
+  border-bottom: 1px solid var(--p3); 
 }
 
 .header-inner.container{
@@ -24,6 +24,13 @@
   align-items: center;
   gap: 16px;
   justify-content: space-between;
+}
+
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
 }
 
 .brand img{
@@ -58,7 +65,7 @@
 .primary-nav .btn {
   background-color: #fff;   /* fundo branco */
   border: 1px solid #000;   /* borda preta */
-  color: #000;              /* texto preto */
+  color: var(--p3);              /* texto preto */
   border-radius: var(--btn-radius); /* cantos levemente arredondados */
   padding: 8px 14px;
   font-size: 14px;
@@ -84,6 +91,7 @@
 }
 
 .primary-nav .btn-primary:hover {
+  background-color: #333;
   opacity: 0.9; /* leve efeito hover */
 }
 
@@ -118,8 +126,8 @@
   position: absolute;
   left: 0;
   right: 0;
-  height: 2px;
-  background: #333;
+  height: 3px;
+  background: var(--p2);
   display: block;
   transition: transform .2s ease, top .2s ease, opacity .2s ease;
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Footer.css";
-import { FaInstagram, FaYoutube, FaLinkedin } from "react-icons/fa";
+import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import siteIcon from "../assets/Site.svg";
 
 function Footer() {
   return (
@@ -8,40 +9,38 @@ function Footer() {
       <div className="footer-container">
         <div className="footer-textos">
           <p>
-            Construído por Ianka Talita, Thalita Santana e Maria F. Abalém |
-            Mantido pelo Programa Meninas Digitais.
+            Construído por Amanda Moura Cavalcante, Davi Regonatti Rodrigues, Melina Alves Gonçalves e Victor Henrique Paulo Lopes Pereira | Mantido pelo Programa Meninas Digitais UTFPR - CP.
           </p>
           <p>
-            Coordenação do Programa Meninas Digitais: Aletéia Araújo (UnB),
-            Luciana Salgado (UFF) & Mirella Moro (UFMG).
+            Coordenação do Programa Meninas Digitais: Rosangela de Fatima Pereira Marquesone (UTFPR).
           </p>
         </div>
 
         <div className="footer-direita">
           <div className="footer-icones">
             <a
-              href="https://www.instagram.com/"
+              href="https://www.instagram.com/meninasdigitaisutfprcp/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaInstagram />
             </a>
             <a
-              href="https://www.youtube.com/"
+              href="https://meninas.sbc.org.br/projetos-parceiros/meninas-digitais-utfpr-cp/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaYoutube />
+              <img src={siteIcon} alt="Icone do Site" />
             </a>
             <a
-              href="https://www.linkedin.com/"
+              href="https://www.linkedin.com/company/meninas-digitais-utfpr-cp/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaLinkedin />
             </a>
           </div>
-          <p className="footer-direitos">2025 © Meninas Digitais</p>
+          <p className="footer-direitos">2025 © Meninas Digitais UTFPR - CP</p>
         </div>
       </div>
     </footer>

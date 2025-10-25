@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/header.css";
 import logo from "../assets/logo.png";
+import logo_cp from "../assets/logo_cp.svg";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -11,9 +12,10 @@ export default function Header() {
     <header className="site-header" role="banner">
       <div className="header-inner container">
         <Link to="/" className="brand" aria-label="Meninas Digitais - Home">
-          <img src={logo} alt="Meninas Digitais" />
+          <img src={logo_cp} alt="Logo Meninas Digitais UTPFR-CP" />
+          <img src={logo} alt="Logo Meninas Digitais" />
         </Link>
-
+        
         <button
           className="nav-toggle"
           aria-controls="primary-navigation"

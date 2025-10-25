@@ -1,6 +1,6 @@
 .footer {
-  background-color: #B7BFC2;
-  color: #000;
+  background-color: var(--s3);
+  color: var(--p3);
   padding: 1.5rem 2rem;
   font-family: "Arial", sans-serif;
 }
@@ -34,17 +34,17 @@
 }
 
 .footer-icones a {
-  color: #000;
+  color: var(--p3);
   transition: color 0.3s;
 }
 
 .footer-icones a:hover {
-  color: #6a1b9a;
+  color: var(--p2);
 }
 
 .footer-direitos {
   font-size: 0.85rem;
-  color: #333;
+  color: var(--p3);
 }
 
 /* Responsivo */
