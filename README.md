@@ -111,7 +111,7 @@ O Vite é um *tooling* moderno para desenvolvimento *frontend* que utiliza o Nod
 | Etapa | Instruções |
 | :--- | :--- |
 | **Criação do Projeto** | No terminal, dentro da pasta de destino do projeto, execute o comando (substituindo `meu-app-banco-ideias` pelo nome desejado): `npm create vite@latest meu-app-banco-ideias -- --template react-ts` (para React com TypeScript) ou `npm create vite@latest meu-app-banco-ideias -- --template react` (para React com JavaScript). |
-| **Configuração** | Entre na pasta do projeto recém-criado: `cd meu-app-banco-ideias` e instale as dependências: `npm install` (ou `yarn install`). |
+| **Configuração** | Entre na pasta do projeto recém-criado: `cd banco-de-ideias` e instale as dependências: `npm install`. |
 | **Compilação/Execução** | Para iniciar o ambiente de desenvolvimento: `npm run dev`. Para gerar os arquivos finais prontos para produção (compilação): `npm run build`. |
 
 ### 4. Firebase (Cloud Firestore e Authentication)
