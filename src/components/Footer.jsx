@@ -5,7 +5,7 @@ import siteIcon from "../assets/Site.svg";
 
 function Footer() {
   return (
-    <footer className="footer">
+    <footer id="contato" className="footer">
       <div className="footer-container">
         <div className="footer-textos">
           <p>
