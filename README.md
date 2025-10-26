@@ -1,7 +1,3 @@
-## Figma do Projeto
-
-[Design do Figma](https://www.figma.com/design/rsPy2n9luKmWDx0bj30x8U/Certificadora-3?node-id=15-4&t=DhI5lr8KywxInAKn-1)
-
 # 💡 Banco de Ideias Digital - Projeto Meninas Digitais
 
 ## 📝 Descrição do Projeto
@@ -43,6 +39,10 @@ O desenvolvimento será realizado utilizando as seguintes tecnologias modernas:
 | **IDE** | Visual Studio Code (VS Code) | IDE principal utilizada para desenvolvimento colaborativo. |
 | **Hospedagem (Deploy)** | Vercel | Plataforma de hospedagem para Front-end e Back-end, garantindo escalabilidade e integração contínua. |
 | **Versionamento** | GitHub | Versionamento de código, armazenamento de artefatos e acompanhamento de tarefas via *issues* e *pull requests*. |
+
+## Figma do Projeto
+
+[Design do Figma](https://www.figma.com/design/rsPy2n9luKmWDx0bj30x8U/Certificadora-3?node-id=15-4&t=DhI5lr8KywxInAKn-1)
 
 ## 🧑‍💻 Equipe de Desenvolvimento
 
