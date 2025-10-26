@@ -4,7 +4,7 @@
   --text: var(--p3);
   --muted: var(--s3);
   --btn-radius: 4px; 
-  --container-w: 1100px;
+  --container-w: 95%;
 }
 
 .site-header{
