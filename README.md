@@ -80,3 +80,55 @@ O código-fonte e todos os artefatos do projeto estão armazenados neste reposit
 * Estrutura do banco de dados no Firebase.
 * Documentação do projeto (relatórios, manuais de uso, README).
 * Artefatos complementares (diagramas, imagens, vídeos de apresentação).
+
+
+## 🛠️ Roteiro de Instalação e Configuração
+
+Este roteiro cobre as etapas essenciais para configurar o ambiente de desenvolvimento, conforme as tecnologias definidas no projeto.
+
+### 1. Visual Studio Code (VS Code) 
+
+O VS Code será a IDE principal utilizada por toda a equipe para o desenvolvimento colaborativo.
+
+| Etapa | Instruções |
+| :--- | :--- |
+| **Instalação** | Acesse o site oficial do VS Code, baixe o instalador compatível com seu sistema operacional (Windows, macOS ou Linux) e execute-o, seguindo as instruções padrão. |
+| **Uso** | Após a instalação, abra o VS Code. Utilize a aba de **Extensões** (Ctrl+Shift+X) para instalar extensões úteis para desenvolvimento React, Node.js e TypeScript, como: Prettier, ESLint, e extensões para manipulação de Firebase. |
+
+### 2. Node.js 
+
+Necessário para rodar o ambiente de desenvolvimento JavaScript, o *backend* (com Express.js) e o gerenciador de pacotes (`npm` ou `yarn`).
+
+| Etapa | Instruções |
+| :--- | :--- |
+| **Instalação** | Baixe a versão LTS (Long Term Support) do Node.js no site oficial. O instalador incluirá automaticamente o gerenciador de pacotes `npm`. |
+| **Verificação** | Abra o terminal ou Prompt de Comando e digite: `node -v` e `npm -v`. As versões instaladas devem ser exibidas. |
+
+### 3. Vite (para Criação do Projeto React)
+
+O Vite é um *tooling* moderno para desenvolvimento *frontend* que utiliza o Node.js. Embora o projeto mencione diretamente React.js, Node.js e Express.js, o Vite é comumente usado para iniciar o projeto React com TypeScript/JavaScript.
+
+| Etapa | Instruções |
+| :--- | :--- |
+| **Criação do Projeto** | No terminal, dentro da pasta de destino do projeto, execute o comando (substituindo `meu-app-banco-ideias` pelo nome desejado): `npm create vite@latest meu-app-banco-ideias -- --template react-ts` (para React com TypeScript) ou `npm create vite@latest meu-app-banco-ideias -- --template react` (para React com JavaScript). |
+| **Configuração** | Entre na pasta do projeto recém-criado: `cd meu-app-banco-ideias` e instale as dependências: `npm install` (ou `yarn install`). |
+| **Compilação/Execução** | Para iniciar o ambiente de desenvolvimento: `npm run dev`. Para gerar os arquivos finais prontos para produção (compilação): `npm run build`. |
+
+### 4. Firebase (Cloud Firestore e Authentication)
+
+Utilizado como Banco de Dados NoSQL (Cloud Firestore) e para o gerenciamento de autenticação segura (Firebase Authentication).
+
+| Etapa | Instruções |
+| :--- | :--- |
+| **Criação do Projeto** | Acesse o **Console do Firebase** e crie um novo projeto. |
+| **Configuração do SDK** | No Console, adicione uma aplicação web ao seu projeto. O Firebase fornecerá as chaves de configuração (variáveis de ambiente, como API Key e Project ID). |
+| **Instalação no Projeto** | No terminal do seu projeto, instale os SDKs necessários: `npm install firebase`. |
+| **Uso no Código** | No código, importe os módulos necessários (ex.: `getFirestore`, `getAuth`) e inicialize o Firebase com as chaves de configuração. |
+
+### 5. Figma
+
+
+| Etapa | Instruções |
+| :--- | :--- |
+| **Acesso/Instalação** | O Figma é uma ferramenta baseada em navegador (acessível online). Opcionalmente, baixe o aplicativo desktop no site oficial. |
+| **Uso** | Acessar o ambiente de trabalho e criar um novo projeto para o protótipo do Banco de Ideias. Os protótipos servirão como guia visual para a implementação das telas em React. |
