@@ -97,11 +97,11 @@ O VS Code será a IDE principal utilizada por toda a equipe para o desenvolvimen
 
 ### 2. Node.js 
 
-Necessário para rodar o ambiente de desenvolvimento JavaScript, o *backend* (com Express.js) e o gerenciador de pacotes (`npm` ou `yarn`).
+Necessário para rodar o ambiente de desenvolvimento JavaScript, o *backend* (com Express.js) e o gerenciador de pacotes (`npm`).
 
 | Etapa | Instruções |
 | :--- | :--- |
-| **Instalação** | Baixe a versão LTS (Long Term Support) do Node.js no site oficial. O instalador incluirá automaticamente o gerenciador de pacotes `npm`. |
+| **Instalação** | Baixe a versão mais recente do Node.js no site oficial. O instalador incluirá automaticamente o gerenciador de pacotes `npm`. |
 | **Verificação** | Abra o terminal ou Prompt de Comando e digite: `node -v` e `npm -v`. As versões instaladas devem ser exibidas. |
 
 ### 3. Vite (para Criação do Projeto React)
@@ -110,9 +110,9 @@ O Vite é um *tooling* moderno para desenvolvimento *frontend* que utiliza o Nod
 
 | Etapa | Instruções |
 | :--- | :--- |
-| **Criação do Projeto** | No terminal, dentro da pasta de destino do projeto, execute o comando (substituindo `meu-app-banco-ideias` pelo nome desejado): `npm create vite@latest meu-app-banco-ideias -- --template react-ts` (para React com TypeScript) ou `npm create vite@latest meu-app-banco-ideias -- --template react` (para React com JavaScript). |
+| **Criação do Projeto** | No terminal, dentro da pasta de destino do projeto, execute o comando (substituindo `meu-app-banco-ideias` pelo nome desejado). |
 | **Configuração** | Entre na pasta do projeto recém-criado: `cd banco-de-ideias` e instale as dependências: `npm install`. |
-| **Compilação/Execução** | Para iniciar o ambiente de desenvolvimento: `npm run dev`. Para gerar os arquivos finais prontos para produção (compilação): `npm run build`. |
+| **Compilação/Execução** | Para iniciar o ambiente de desenvolvimento: `npm run dev`. |
 
 ### 4. Firebase (Cloud Firestore e Authentication)
 
