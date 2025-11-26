@@ -9,13 +9,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Load service account key from .env path
-const serviceAccountPath = path.resolve(
-  __dirname,
-  "..",
-  "..",
-  process.env.FIREBASE_SERVICE_ACCOUNT_PATH
-);
-const serviceAccount = require(serviceAccountPath);
+// const serviceAccountPath = path.resolve(
+//   __dirname,
+//   "..",
+//   "..",
+//   process.env.FIREBASE_SERVICE_ACCOUNT_PATH
+// );
+const serviceAccount = require("../../serviceAccountKey.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -23,4 +23,4 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-export { db };
+export { db, admin };
