@@ -9,7 +9,7 @@ const getIdeasCollection = (userId) => {
 // CREATE a new idea for a user
 export const createIdea = async (req, res) => {
   try {
-    const { userId } = req.params;
+    const userId = req.user.uid; // Fixed: was destructuring userId from uid string
     const { title, description } = req.body;
 
     if (!title || !description) {
@@ -24,10 +24,32 @@ export const createIdea = async (req, res) => {
       datetime: Timestamp.now(), // Use Firebase server timestamp
     };
 
-    const ideasCollection = getIdeasCollection(userId);
+    const ideasCollection = db
+      .collection("users")
+      .doc(userId)
+      .collection("ideias");
     const docRef = await ideasCollection.add(newIdea);
 
     res.status(201).send({ id: docRef.id, ...newIdea });
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+};
+
+// READ all ideas for the logged-in user
+export const getMyIdeas = async (req, res) => {
+  try {
+    const userId = req.user.uid;
+    const ideasCollection = getIdeasCollection(userId);
+
+    const snapshot = await ideasCollection.orderBy("datetime", "desc").get();
+
+    const ideas = [];
+    snapshot.forEach((doc) => {
+      ideas.push({ id: doc.id, ...doc.data() });
+    });
+
+    res.status(200).send(ideas);
   } catch (error) {
     res.status(500).send({ message: error.message });
   }
@@ -52,11 +74,34 @@ export const getAllIdeasForUser = async (req, res) => {
   }
 };
 
+export const getAllIdeas = async (req, res) => {
+  // We know this user is an admin because the 'isAdmin' middleware passed
+  try {
+    // This is a more complex query (collection group query)
+    const ideasSnapshot = await db.collectionGroup("ideias").get();
+    const allIdeas = [];
+    ideasSnapshot.forEach((doc) => {
+      // doc.ref.parent.parent.id gives the userId (parent document of the subcollection)
+      const userId = doc.ref.parent.parent ? doc.ref.parent.parent.id : null;
+      allIdeas.push({ id: doc.id, userId, ...doc.data() });
+    });
+    res.status(200).send(allIdeas);
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+};
+
 // READ a single idea
 export const getIdea = async (req, res) => {
   try {
-    const { userId, ideaId } = req.params;
-    const ideaDoc = await getIdeasCollection(userId).doc(ideaId).get();
+    const userId = req.user.uid;
+    const { ideaId } = req.params;
+    const ideaDoc = await db
+      .collection("users")
+      .doc(userId)
+      .collection("ideias")
+      .doc(ideaId)
+      .get();
 
     if (!ideaDoc.exists) {
       return res.status(404).send({ message: "Idea not found" });
@@ -71,7 +116,8 @@ export const getIdea = async (req, res) => {
 // UPDATE an idea
 export const updateIdea = async (req, res) => {
   try {
-    const { userId, ideaId } = req.params;
+    const userId = req.user.uid;
+    const { ideaId } = req.params;
     const { title, description } = req.body;
 
     const ideaRef = getIdeasCollection(userId).doc(ideaId);
@@ -92,10 +138,43 @@ export const updateIdea = async (req, res) => {
 // DELETE an idea
 export const deleteIdea = async (req, res) => {
   try {
-    const { userId, ideaId } = req.params;
+    const userId = req.user.uid;
+    const { ideaId } = req.params;
     await getIdeasCollection(userId).doc(ideaId).delete();
 
     res.status(200).send({ message: "Idea deleted successfully" });
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+};
+
+// ADMIN: Update any idea
+export const updateIdeaByAdmin = async (req, res) => {
+  try {
+    const { userId, ideaId } = req.params;
+    const { title, description } = req.body;
+
+    const ideaRef = getIdeasCollection(userId).doc(ideaId);
+
+    const updates = {};
+    if (title) updates.title = title;
+    if (description) updates.description = description;
+
+    await ideaRef.update(updates);
+
+    res.status(200).send({ message: "Idea updated successfully by admin" });
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+};
+
+// ADMIN: Delete any idea
+export const deleteIdeaByAdmin = async (req, res) => {
+  try {
+    const { userId, ideaId } = req.params;
+    await getIdeasCollection(userId).doc(ideaId).delete();
+
+    res.status(200).send({ message: "Idea deleted successfully by admin" });
   } catch (error) {
     res.status(500).send({ message: error.message });
   }
