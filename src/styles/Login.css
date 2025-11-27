@@ -4,6 +4,21 @@
   background-color: #FFFFFF;
 }
 
+.error-message{
+  background: #ffdddd;
+  color: #b30000;
+  padding: 10px;
+  max-width: fit-content;
+  border-left: 4px solid #b30000;
+  border-radius: 4px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .login-form label {
   display: block;        
   font-weight: 500;      

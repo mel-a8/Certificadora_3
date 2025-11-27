@@ -1,0 +1,29 @@
+.form-ideias {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.form-ideias-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.form-ideias-form input,
+.form-ideias-form textarea {
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-weight: 600;
+  font-family: Anago Book, sans-serif;
+}
+
+.form-ideias-form button {
+  padding: 0.8rem;
+  background-color: #7b3688;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}

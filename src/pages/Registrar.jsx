@@ -53,7 +53,7 @@ export default function Registrar() {
 
           <form onSubmit={handleSignup}>
             <label>
-              Nome
+              Nome Completo
               <input
                 type="text"
                 placeholder="Digite seu nome completo"

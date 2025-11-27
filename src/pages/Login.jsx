@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { loginAPI } from "../services/authService";
+
+import { traduzirErroFirebase } from "../utils/firebaseErrors";
+
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../styles/login.css";
@@ -12,6 +15,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
   const { login } = useAuth();
   const navigate = useNavigate();
 
@@ -35,7 +39,13 @@ export default function Login() {
       login(userData, data.idToken);
       navigate("/criar-ideias"); // Redirect to home/dashboard
     } catch (err) {
-      setError(err.message);
+
+      const codigo =
+        err.code ||
+        err?.response?.data?.error?.message ||
+        "auth/unknown";
+
+      setError(traduzirErroFirebase(codigo));
     } finally {
       setLoading(false);
     }
@@ -49,7 +59,11 @@ export default function Login() {
           <h1>Bem-vindo de volta!</h1>
           <p>Ponha suas credenciais para acessar sua conta</p>
 
-          {error && <p className="error-message" style={{ color: 'red' }}>{error}</p>}
+          {error && (
+            <p className="error-message" style={{color: 'red'}}>
+              {error}
+            </p>
+          )}
 
           <form onSubmit={handleSubmit}>
             <label>
