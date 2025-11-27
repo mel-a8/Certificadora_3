@@ -47,13 +47,13 @@ export default function Header() {
             {user ? (
               <li className="nav-actions">
                 <span className="user-name">Olá, {user.name}</span>
-                <button className="btn btn-outline" onClick={logout}>
+                <button className="btn btn-logout" onClick={logout}>
                   Sair
                 </button>
               </li>
             ) : (
               <li className="nav-actions">
-                <button className="btn btn-outline" onClick={() => navigate("/login")}>
+                <button className="btn" onClick={() => navigate("/login")}>
                   Login
                 </button>
                 <button className="btn btn-primary" onClick={() => navigate("/registrar")}>

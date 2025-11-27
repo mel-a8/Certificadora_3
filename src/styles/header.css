@@ -95,6 +95,24 @@
   opacity: 0.9; /* leve efeito hover */
 }
 
+/*Estilo do botão de Logout*/
+
+.primary-nav .btn-logout{
+  background-color: #c33f3f; /* fundo transparente */
+  color: var(--p5);              /* texto preto */
+  border: 1px solid #000;        /* borda preta */
+  border-radius: var(--btn-radius);
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.primary-nav .btn-logout:hover{
+  background-color: #ec7b7b;
+  opacity: 0.9; 
+}
+
 .nav-toggle{
   display: none;
   background: transparent;
