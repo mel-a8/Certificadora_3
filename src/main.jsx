@@ -16,8 +16,12 @@ const router = createBrowserRouter([
   {path: "*", element: <h1>404 - Página Não Encontrada</h1>},
 ]);
 
+import { AuthProvider } from "./context/AuthContext";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+  <AuthProvider>
+    <RouterProvider router={router} />
+  </AuthProvider>
 );
 
 
