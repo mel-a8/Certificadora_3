@@ -2,7 +2,7 @@ import React from "react";
 import CardIdeia from "./CardIdeias";
 import "../styles/SecaoIdeias.css";
 
-function SecaoIdeias({ ideias }) {
+function SecaoIdeias({ ideias, onEditIdea, onDeleteIdea }) { 
   return (
     <section className="secao-ideias">
       <div className="container">
@@ -12,10 +12,13 @@ function SecaoIdeias({ ideias }) {
           {ideias.map((item) => (
             <CardIdeia
               key={item.id}
+              id={item.id}
               texto={item.texto}
               nome={item.nome}
               data={item.data}
               titulo={item.titulo}
+              onEdit={onEditIdea}   
+              onDelete={onDeleteIdea}  
             />
           ))}
         </div>

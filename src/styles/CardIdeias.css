@@ -28,3 +28,39 @@
     color: #666;
     font-size: 0.85rem;
 }
+
+.ideias-actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn {
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-edit{
+    background-color: var(--s1);
+    color: var(--p3);
+}
+
+.btn-edit:hover{
+    background-color: var(--p4);
+    transition: 0.3s;
+}
+
+.btn-delete {
+    background-color: var(--s4);
+    color: var(--p3);
+}
+
+.btn-delete:hover {
+    background-color: var(--p6);
+    transition: 0.3s;
+}
