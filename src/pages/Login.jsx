@@ -1,9 +1,46 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { loginAPI } from "../services/authService";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../styles/login.css";
 import imagemLogin from "../assets/logomd.png";
 
 export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+
+    try {
+      const data = await loginAPI(email, password);
+      
+      // The backend returns: { idToken, refreshToken, expiresIn, localId, email }
+      // We'll store the minimal user info we have. 
+      // Ideally, we might want to fetch the full user profile here or later.
+      // For now, let's store the email and localId (uid).
+      const userData = {
+        uid: data.localId,
+        email: data.email
+      };
+      
+      login(userData, data.idToken);
+      navigate("/criar-ideias"); // Redirect to home/dashboard
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <Header />
@@ -12,18 +49,34 @@ export default function Login() {
           <h1>Bem-vindo de volta!</h1>
           <p>Ponha suas credenciais para acessar sua conta</p>
 
-          <form>
+          {error && <p className="error-message" style={{ color: 'red' }}>{error}</p>}
+
+          <form onSubmit={handleSubmit}>
             <label>
               E-mail
-              <input type="email" placeholder="Digite seu e-mail" />
+              <input 
+                type="email" 
+                placeholder="Digite seu e-mail" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </label>
 
             <label>
               Senha
-              <input type="password" placeholder="Digite sua senha" />
+              <input 
+                type="password" 
+                placeholder="Digite sua senha" 
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
             </label>
 
-            <button type="submit" className="btn-login">Login</button>
+            <button type="submit" className="btn-login" disabled={loading}>
+              {loading ? "Carregando..." : "Login"}
+            </button>
           </form>
 
           <p className="registrar-text">
