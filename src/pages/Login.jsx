@@ -27,13 +27,23 @@ export default function Login() {
     try {
       const data = await loginAPI(email, password);
       
+      //Puxar o perfil do usuário após login
+      const profileRes = await fetch("http://localhost:3001/api/me", {
+      headers: {
+        Authorization: `Bearer ${data.idToken}`,
+      },
+      });
+
+      const profile = await profileRes.json();
+
       // The backend returns: { idToken, refreshToken, expiresIn, localId, email }
       // We'll store the minimal user info we have. 
       // Ideally, we might want to fetch the full user profile here or later.
       // For now, let's store the email and localId (uid).
       const userData = {
         uid: data.localId,
-        email: data.email
+        email: data.email,
+        name: profile.name
       };
       
       login(userData, data.idToken);

@@ -198,3 +198,10 @@
 #sobre {
   scroll-margin-top: 100px; 
 }
+
+@media (max-width: 320px){
+
+  .header-inner.container{
+    padding: 10px 0px;
+  }
+}

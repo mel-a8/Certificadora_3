@@ -4,9 +4,14 @@ import "../styles/header.css";
 import logo from "../assets/logo.png";
 import logo_cp from "../assets/logo_cp.svg";
 
+import { useAuth } from "../context/AuthContext";
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const { user, logout } = useAuth();
+
+  console.log("Header user:", user);
 
   return (
     <header className="site-header" role="banner">
@@ -39,14 +44,23 @@ export default function Header() {
           <ul>
             <li><a href="#sobre">Sobre</a></li>
             <li><a href="#contato">Contato</a></li>
-            <li className="nav-actions">
-              <button className="btn btn-outline" onClick={() => navigate("/login")}>
-                Login
-              </button>
-              <button className="btn btn-primary" onClick={() => navigate("/registrar")}>
-                Registre-se
-              </button>
-            </li>
+            {user ? (
+              <li className="nav-actions">
+                <span className="user-name">Olá, {user.name}</span>
+                <button className="btn btn-outline" onClick={logout}>
+                  Sair
+                </button>
+              </li>
+            ) : (
+              <li className="nav-actions">
+                <button className="btn btn-outline" onClick={() => navigate("/login")}>
+                  Login
+                </button>
+                <button className="btn btn-primary" onClick={() => navigate("/registrar")}>
+                  Registre-se
+                </button>
+              </li>
+            )}
           </ul>
         </nav>
       </div>
