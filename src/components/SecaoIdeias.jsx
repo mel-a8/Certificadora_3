@@ -2,6 +2,12 @@ import React from "react";
 import CardIdeia from "./CardIdeias";
 import "../styles/SecaoIdeias.css";
 
+const getIdeas = async () => {
+    const response = await fetch("http://localhost:3001/ideias");
+    const data = await response.json();
+    return data;
+};
+
 function SecaoIdeias() {
 const ideias = [
     {
