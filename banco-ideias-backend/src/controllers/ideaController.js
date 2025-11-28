@@ -80,12 +80,41 @@ export const getAllIdeas = async (req, res) => {
     // This is a more complex query (collection group query)
     const ideasSnapshot = await db.collectionGroup("ideias").get();
     const allIdeas = [];
+    const userIds = new Set();
+
     ideasSnapshot.forEach((doc) => {
       // doc.ref.parent.parent.id gives the userId (parent document of the subcollection)
       const userId = doc.ref.parent.parent ? doc.ref.parent.parent.id : null;
+      if (userId) {
+        userIds.add(userId);
+      }
       allIdeas.push({ id: doc.id, userId, ...doc.data() });
     });
-    res.status(200).send(allIdeas);
+
+    // Fetch user details efficiently
+    const userMap = {};
+    if (userIds.size > 0) {
+      const userRefs = Array.from(userIds).map((id) =>
+        db.collection("users").doc(id)
+      );
+      
+      // db.getAll() is available in firebase-admin
+      const usersSnapshots = await db.getAll(...userRefs);
+
+      usersSnapshots.forEach((doc) => {
+        if (doc.exists) {
+          userMap[doc.id] = doc.data().name;
+        }
+      });
+    }
+
+    // Merge user name into ideas
+    const mergedIdeas = allIdeas.map((idea) => ({
+      ...idea,
+      userName: userMap[idea.userId] || "John Doe",
+    }));
+
+    res.status(200).send(mergedIdeas);
   } catch (error) {
     res.status(500).send({ message: error.message });
   }
