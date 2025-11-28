@@ -30,8 +30,28 @@ function Ideias() {
             setLoading(true);
             try {
                 const token = user.token; 
+                let idea_api_url = `${API_BASE_URL}/ideas`;
 
-                const response = await fetch(`${API_BASE_URL}/ideas`, {
+                const response_me = await fetch(`${API_BASE_URL}/me`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`, 
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+                if (!response_me.ok) {
+                    const errorData = await response_me.json();
+                    throw new Error(errorData.message || `Erro HTTP ${response_me.status}: Falha ao carregar ideias.`);
+                }
+
+                const data_me = await response_me.json();
+
+                if (data_me.role === "admin") {
+                    idea_api_url = `${API_BASE_URL}/admin/ideas`;
+                }
+
+
+                const response = await fetch(`${idea_api_url}`, {
                     headers: {
                         'Authorization': `Bearer ${token}`, 
                         'Content-Type': 'application/json',
@@ -62,9 +82,10 @@ function Ideias() {
                     
                     return {
                         id: idea.id,
+                        userId: idea.userId, // FIX: Store owner ID
                         titulo: idea.title,
                         texto: idea.description,
-                        nome: user.name || "Você", 
+                        nome: idea.userName || "Você", 
                         data: dateObj.toLocaleDateString("pt-BR"),
                     }
                 });
@@ -111,6 +132,7 @@ function Ideias() {
 
             const novaIdeiaFront = {
                 id: novaIdeiaBackend.id,
+                userId: user.uid, // FIX: Owner is current user
                 titulo: novaIdeiaBackend.title,
                 texto: novaIdeiaBackend.description,
                 nome: user.name || user.displayName || "Você",
@@ -136,7 +158,33 @@ function Ideias() {
         const token = user.token; 
 
         try {
-            const response = await fetch(`${API_BASE_URL}/ideas/${ideaId}`, {
+            // FIX: Find owner ID
+            const targetIdea = ideias.find(i => i.id === ideaId);
+            const ownerId = targetIdea ? targetIdea.userId : null;
+
+            let idea_api_url = `${API_BASE_URL}/ideas/${ideaId}`;
+
+            const response_me = await fetch(`${API_BASE_URL}/me`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`, 
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (!response_me.ok) {
+                const errorData = await response_me.json();
+                throw new Error(errorData.message || `Erro HTTP ${response_me.status}: Falha ao carregar ideias.`);
+            }
+
+            const data_me = await response_me.json();
+
+            if (data_me.role === "admin") {
+                // FIX: Use owner ID
+                const targetUserId = ownerId || user.uid;
+                idea_api_url = `${API_BASE_URL}/admin/users/${targetUserId}/ideas/${ideaId}`;
+            }
+
+            const response = await fetch(`${idea_api_url}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -165,7 +213,33 @@ function Ideias() {
         const token = user.token;
 
         try {
-            const response = await fetch(`${API_BASE_URL}/ideas/${ideaId}`, {
+            // FIX: Find owner ID
+            const targetIdea = ideias.find(i => i.id === ideaId);
+            const ownerId = targetIdea ? targetIdea.userId : null;
+
+            let idea_api_url = `${API_BASE_URL}/ideas/${ideaId}`;
+
+            const response_me = await fetch(`${API_BASE_URL}/me`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`, 
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (!response_me.ok) {
+                const errorData = await response_me.json();
+                throw new Error(errorData.message || `Erro HTTP ${response_me.status}: Falha ao carregar ideias.`);
+            }
+
+            const data_me = await response_me.json();
+
+            if (data_me.role === "admin") {
+                // FIX: Use owner ID
+                const targetUserId = ownerId || user.uid;
+                idea_api_url = `${API_BASE_URL}/admin/users/${targetUserId}/ideas/${ideaId}`;
+            }
+
+            const response = await fetch(`${idea_api_url}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
